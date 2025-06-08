@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5-Year Anniversary 💕</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 5th Anniversary</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Happy 5th Anniversary, My Love 💖</h1>
-    <p>Five pixel-perfect years with you.</p>
+    <div class="heart-container"></div>
+    <audio id="bg-music" controls autoplay loop>
+        <source src="cold_water.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
 
-    <!-- Music iframe (Cold Water by Justin Bieber) -->
-    <iframe id="ytplayer" width="0" height="0" frameborder="0"
-      src="https://m.youtube.com/watch?v=nBtDsQ4fhXY&pp=ygUKQ29sZCB3YXRlcg%3D%3D"
-      allow="autoplay">
-    </iframe>
-
-    <button class="button" onclick="unmuteVideo()">🔊 Turn On Music</button>
-    <button class="button" onclick="showLetter()">💌 Read Letter</button>
-    <div class="letter">
-      <div class="letter-box">
-        <h2>To My Lovely Girl</h2>
-        <p>
-          These five years have been a co-op adventure I never want to end. You're my favorite person ever in the universe, and I wouldn't want to explore this game called life with anyone else. I Love You 💕
+    <main>
+        <h1>Happy 5th Anniversary, Love 💖</h1>
+        <p class="letter">
+            To my dearest love,<br>
+            These five years have been the most beautiful journey of my life. <br>
+            You’ve filled my world with love, laughter, and light. <br>
+            I built this little corner of the web just for you. I love you always. 💌
         </p>
-        <p>❤️ Your forever teammate</p>
-      </div>
-    </div>
+        <button onclick="showFlowers()">Click here for a surprise 🌹</button>
 
-    <button class="button" onclick="showGallery()">🎮 Our Moments</button>
-    <div class="gallery">
-      <img src="images/photo1.png" alt="Moment 1">
-      <img src="images/photo2.png" alt="Moment 2">
-      <img src="images/photo3.png" alt="Moment 3">
-    </div>
+        <div id="flower-animation"></div>
 
-    <button class="button" onclick="startRoseMagic()">🌸 Click for Surprise</button>
-    <div class="roses"></div>
-    <canvas id="heartsCanvas"></canvas>
-  </div>
+        <section class="gallery">
+            <h2>Our Memories</h2>
+            <div class="photos">
+                <img src="img1.jpg" alt="Memory 1" />
+                <img src="img2.jpg" alt="Memory 2" />
+                <img src="img3.jpg" alt="Memory 3" />
+            </div>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
