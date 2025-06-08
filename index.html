@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body class="not-loaded">
+<body>
   <div class="container">
     <h1>Happy 5th Anniversary, My Love 💖</h1>
     <p>Five pixel-perfect years with you.</p>
 
     <audio id="bgMusic" loop>
-      <source src="cold-water.mp3" type="audio/mpeg">
+      <source src="audio/cold-water.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
     <button class="button" onclick="toggleMusic()">🔊 Play / Pause Music</button>
@@ -36,11 +36,7 @@
       <img src="images/photo3.png" alt="Moment 3">
     </div>
 
-    <button class="button" onclick="bloomFlower()">🌸 Click for Surprise</button>
-  </div>
-
-  <div class="flower-scene not-loaded">
-    <!-- Embedded flower HTML with pink theme will be inserted here by CSS -->
+    <a href="flower.html" class="button">🌸 Click for Surprise</a>
   </div>
 
   <canvas id="heartsCanvas"></canvas>
