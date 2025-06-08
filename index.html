@@ -1,150 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy 5th Anniversary 💕</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
-      color: #ff69b4;
-      overflow-x: hidden;
-    }
-
-    .container {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-    }
-
-    .button {
-      background-color: #ff69b4;
-      color: #000;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 1rem 0;
-      transition: transform 0.2s;
-    }
-
-    .button:hover {
-      transform: scale(1.1);
-    }
-
-    .letter, .gallery, .roses {
-      display: none;
-      margin-top: 2rem;
-    }
-
-    .letter-box {
-      background: rgba(255, 105, 180, 0.1);
-      border: 1px solid #ff69b4;
-      border-radius: 20px;
-      padding: 2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .gallery img {
-      max-width: 150px;
-      margin: 10px;
-      border: 2px solid #ff69b4;
-      border-radius: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .rose {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background: radial-gradient(circle, #ff69b4 30%, #000 100%);
-      border-radius: 50%;
-      animation: bloom 1s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes bloom {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1.2);
-        opacity: 1;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5-Year Anniversary 💕</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Happy 5th Anniversary, My Love 💕</h1>
-    <p>5 years of love, laughter, and growing together.</p>
+    <h1>Happy 5th Anniversary, My Love 💖</h1>
+    <p>Five pixel-perfect years with you.</p>
 
-    <button class="button" onclick="showLetter()">Read My Letter ✉️</button>
+    <!-- Music iframe (Cold Water by Justin Bieber) -->
+    <iframe id="ytplayer" width="0" height="0" frameborder="0"
+      src="https://www.youtube.com/embed/nfWlot6h_JM?autoplay=1&loop=1&playlist=nfWlot6h_JM&mute=1"
+      allow="autoplay">
+    </iframe>
+
+    <button class="button" onclick="unmuteVideo()">🔊 Turn On Music</button>
+    <button class="button" onclick="showLetter()">💌 Read Letter</button>
     <div class="letter">
       <div class="letter-box">
-        <h2>To the Love of My Life</h2>
+        <h2>To My Player 2</h2>
         <p>
-          These five years with you have been the most beautiful chapter of my life. 
-          Your smile lights up my world, and your love keeps me going every single day. 
-          I cherish every memory we’ve made and look forward to making countless more. 
-          Thank you for being you, for loving me, and for making my life so magical. 💖
+          These five years have been a co-op adventure I never want to end. You're my favorite pixel in the universe, and I wouldn't want to explore this game called life with anyone else.
         </p>
-        <p>Forever yours,<br/>💌 Your Love</p>
+        <p>❤️ Your forever teammate</p>
       </div>
     </div>
 
-    <button class="button" onclick="showGallery()">Our Moments 📸</button>
+    <button class="button" onclick="showGallery()">🎮 Our Moments</button>
     <div class="gallery">
-      <!-- Replace with your actual image URLs -->
-      <img src="https://placekitten.com/200/200" alt="cute">
-      <img src="https://placekitten.com/201/200" alt="cute">
-      <img src="https://placekitten.com/202/200" alt="cute">
+      <img src="https://placekitten.com/200/200" alt="Moment 1">
+      <img src="https://placekitten.com/201/200" alt="Moment 2">
+      <img src="https://placekitten.com/202/200" alt="Moment 3">
     </div>
 
-    <button class="button" onclick="startRoseMagic()">Click for a Surprise 🌹</button>
+    <button class="button" onclick="startRoseMagic()">🌸 Click for Surprise</button>
     <div class="roses"></div>
   </div>
 
-  <script>
-    function showLetter() {
-      document.querySelector('.letter').style.display = 'block';
-    }
-
-    function showGallery() {
-      document.querySelector('.gallery').style.display = 'flex';
-      document.querySelector('.gallery').style.flexWrap = 'wrap';
-      document.querySelector('.gallery').style.justifyContent = 'center';
-    }
-
-    function startRoseMagic() {
-      const container = document.querySelector('.roses');
-      for (let i = 0; i < 25; i++) {
-        const rose = document.createElement('div');
-        rose.classList.add('rose');
-        rose.style.left = Math.random() * window.innerWidth + 'px';
-        rose.style.top = Math.random() * window.innerHeight + 'px';
-        container.appendChild(rose);
-        setTimeout(() => {
-          rose.style.opacity = '1';
-        }, i * 100);
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
