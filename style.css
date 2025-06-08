@@ -12,18 +12,6 @@ body {
   max-width: 800px;
   margin: auto;
   position: relative;
-  z-index: 1;
-}
-
-h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ff8ecb;
-}
-
-p {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
 }
 
 .button {
@@ -34,12 +22,7 @@ p {
   margin: 1rem;
   font-size: 0.8rem;
   border-radius: 8px;
-  font-family: 'Press Start 2P', cursive;
   cursor: pointer;
-}
-
-.button:hover {
-  background-color: #ff69b4;
 }
 
 .letter, .gallery {
@@ -69,18 +52,14 @@ p {
   image-rendering: pixelated;
 }
 
-/* Rose container */
 .roses {
-  display: block;
   position: relative;
   width: 100%;
   height: 200px;
   margin-top: 2rem;
-  overflow: hidden;
   z-index: 2;
 }
 
-/* Individual rose styling */
 .rose {
   position: absolute;
   width: 40px;
@@ -89,22 +68,13 @@ p {
   background-size: contain;
   animation: bloom 1s ease-out forwards;
   opacity: 0;
-  image-rendering: pixelated;
-  transform: scale(0);
 }
 
 @keyframes bloom {
-  0% {
-    transform: scale(0.1) translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.1) translateY(0);
-    opacity: 1;
-  }
+  0% { transform: scale(0.2); opacity: 0; }
+  100% { transform: scale(1.2); opacity: 1; }
 }
 
-/* Falling hearts canvas */
 #heartsCanvas {
   position: fixed;
   top: 0;
@@ -113,25 +83,4 @@ p {
   width: 100%;
   height: 100%;
   z-index: 0;
-}
-
-/* Mobile styles */
-@media (max-width: 600px) {
-  .gallery img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .button {
-    font-size: 0.7rem;
-    padding: 0.8rem;
-  }
-
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 0.8rem;
-  }
 }

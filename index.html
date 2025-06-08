@@ -12,19 +12,20 @@
     <h1>Happy 5th Anniversary, My Love 💖</h1>
     <p>Five pixel-perfect years with you.</p>
 
-    <!-- Fixed Music Embed (Cold Water by Justin Bieber) -->
-    <iframe id="ytplayer" width="0" height="0" frameborder="0"
-      src="https://www.youtube.com/embed/tnx3pZBNLw8?autoplay=1&loop=1&playlist=tnx3pZBNLw8&mute=1"
-      allow="autoplay">
-    </iframe>
+    <!-- Music player -->
+    <audio id="bgMusic" loop>
+      <source src="audio/cold-water.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button class="button" onclick="toggleMusic()">🔊 Play / Pause Music</button>
 
-    <button class="button" onclick="unmuteVideo()">🔊 Turn On Music</button>
     <button class="button" onclick="showLetter()">💌 Read Letter</button>
     <div class="letter">
       <div class="letter-box">
         <h2>To My Player 2</h2>
         <p>
-          These five years have been a co-op adventure I never want to end. You're my favorite pixel in the universe, and I wouldn't want to explore this game called life with anyone else.
+          These five years have been a co-op adventure I never want to end.
+          You're my favorite pixel in the universe.
         </p>
         <p>❤️ Your forever teammate</p>
       </div>
@@ -41,7 +42,6 @@
     <div class="roses"></div>
     <canvas id="heartsCanvas"></canvas>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
