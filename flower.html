@@ -1,49 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Surprise 🌸</title>
+  <meta charset="UTF-8">
+  <title>Surprise Flower 🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #000;
       margin: 0;
-      overflow: hidden;
+      background-color: #000;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Press Start 2P', cursive;
     }
-    .flower-container {
-      transform: scale(0);
+
+    .flower {
+      position: relative;
+      width: 100px;
+      height: 100px;
       animation: bloom 2s ease-out forwards;
+      transform: scale(0);
     }
+
+    .petal {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: #ff69b4;
+      border-radius: 50% 50% 0 0;
+      transform-origin: bottom center;
+      opacity: 0;
+      animation: petalBloom 1s ease forwards;
+    }
+
+    .petal:nth-child(1) { transform: rotate(0deg) translateY(-30px); animation-delay: 0.2s; }
+    .petal:nth-child(2) { transform: rotate(72deg) translateY(-30px); animation-delay: 0.4s; }
+    .petal:nth-child(3) { transform: rotate(144deg) translateY(-30px); animation-delay: 0.6s; }
+    .petal:nth-child(4) { transform: rotate(216deg) translateY(-30px); animation-delay: 0.8s; }
+    .petal:nth-child(5) { transform: rotate(288deg) translateY(-30px); animation-delay: 1s; }
+
+    .center {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #ffc0cb;
+      border-radius: 50%;
+      z-index: 1;
+      animation: centerPulse 1.5s ease-in-out infinite alternate;
+    }
+
     @keyframes bloom {
       to { transform: scale(1); }
     }
+
+    @keyframes petalBloom {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes centerPulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
     .back-button {
-      margin-top: 2rem;
-      font-family: 'Press Start 2P', cursive;
-      background: #ff1493;
+      margin-top: 3rem;
+      background-color: #ff1493;
       color: #000;
       border: 3px solid #ff69b4;
       padding: 1rem;
       font-size: 0.8rem;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <div class="flower-container">
-    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="10" fill="#ff69b4"/>
-      <circle cx="70" cy="50" r="10" fill="#ff8ecb"/>
-      <circle cx="30" cy="50" r="10" fill="#ffc0cb"/>
-      <circle cx="50" cy="30" r="10" fill="#ff69b4"/>
-      <circle cx="50" cy="70" r="10" fill="#ff8ecb"/>
-    </svg>
+  <div class="flower">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="center"></div>
   </div>
   <a href="index.html" class="back-button">← Back to Love</a>
 </body>
