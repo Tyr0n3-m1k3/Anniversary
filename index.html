@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 5th Anniversary 💕</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #ff69b4;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .button {
+      background-color: #ff69b4;
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 1rem 0;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .letter, .gallery, .roses {
+      display: none;
+      margin-top: 2rem;
+    }
+
+    .letter-box {
+      background: rgba(255, 105, 180, 0.1);
+      border: 1px solid #ff69b4;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .gallery img {
+      max-width: 150px;
+      margin: 10px;
+      border: 2px solid #ff69b4;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .rose {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #ff69b4 30%, #000 100%);
+      border-radius: 50%;
+      animation: bloom 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy 5th Anniversary, My Love 💕</h1>
+    <p>5 years of love, laughter, and growing together.</p>
+
+    <button class="button" onclick="showLetter()">Read My Letter ✉️</button>
+    <div class="letter">
+      <div class="letter-box">
+        <h2>To the Love of My Life</h2>
+        <p>
+          These five years with you have been the most beautiful chapter of my life. 
+          Your smile lights up my world, and your love keeps me going every single day. 
+          I cherish every memory we’ve made and look forward to making countless more. 
+          Thank you for being you, for loving me, and for making my life so magical. 💖
+        </p>
+        <p>Forever yours,<br/>💌 Your Love</p>
+      </div>
+    </div>
+
+    <button class="button" onclick="showGallery()">Our Moments 📸</button>
+    <div class="gallery">
+      <!-- Replace with your actual image URLs -->
+      <img src="https://placekitten.com/200/200" alt="cute">
+      <img src="https://placekitten.com/201/200" alt="cute">
+      <img src="https://placekitten.com/202/200" alt="cute">
+    </div>
+
+    <button class="button" onclick="startRoseMagic()">Click for a Surprise 🌹</button>
+    <div class="roses"></div>
+  </div>
+
+  <script>
+    function showLetter() {
+      document.querySelector('.letter').style.display = 'block';
+    }
+
+    function showGallery() {
+      document.querySelector('.gallery').style.display = 'flex';
+      document.querySelector('.gallery').style.flexWrap = 'wrap';
+      document.querySelector('.gallery').style.justifyContent = 'center';
+    }
+
+    function startRoseMagic() {
+      const container = document.querySelector('.roses');
+      for (let i = 0; i < 25; i++) {
+        const rose = document.createElement('div');
+        rose.classList.add('rose');
+        rose.style.left = Math.random() * window.innerWidth + 'px';
+        rose.style.top = Math.random() * window.innerHeight + 'px';
+        container.appendChild(rose);
+        setTimeout(() => {
+          rose.style.opacity = '1';
+        }, i * 100);
+      }
+    }
+  </script>
+</body>
+</html>
