@@ -1,94 +1,173 @@
+/* Pixel font - you can use a real pixel font or this fallback */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --pink: #ff6b9e;
+    --dark-pink: #e8498e;
+    --black: #1a1a1a;
+    --light-black: #2d2d2d;
+}
+
 body {
-  margin: 0;
-  font-family: 'Press Start 2P', cursive, sans-serif;
-  background-color: #000;
-  color: #ff69b4;
-  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--black);
+    color: white;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
 .container {
-  padding: 2rem;
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
 }
 
-.button {
-  background-color: #ff1493;
-  color: #000;
-  border: 4px solid #ff69b4;
-  padding: 1rem;
-  margin: 1rem;
-  font-size: 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
+.pixel-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--pink);
+    text-shadow: 4px 4px 0 var(--dark-pink);
 }
 
-.letter, .gallery {
-  display: none;
-  margin-top: 2rem;
+.pixel-box {
+    border: 4px solid var(--pink);
+    background-color: var(--light-black);
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 8px 8px 0 var(--dark-pink);
 }
 
-.letter-box {
-  background: #1a1a1a;
-  border: 2px dashed #ff69b4;
-  padding: 1.5rem;
-  border-radius: 10px;
+.pixel-btn {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--pink);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 4px 4px 0 var(--dark-pink);
+    transition: all 0.2s;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+.pixel-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--dark-pink);
 }
 
-.gallery img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border: 2px solid #ff69b4;
-  image-rendering: pixelated;
+/* Music Player */
+.glass-effect {
+    background: rgba(255, 107, 158, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-bottom: 30px;
 }
 
-#heartsCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.flower-scene {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at bottom, #000 50%, #ff69b4 100%);
-  z-index: 3;
-  align-items: center;
-  justify-content: center;
+.song-title {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--pink);
 }
 
-.flower-scene.active {
-  display: flex;
+/* Love Letter */
+.love-letter p {
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
-.flower {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #ffb6d9, #ff69b4);
-  border-radius: 50%;
-  animation: bloom 2s ease-out forwards;
+/* Interactive Flower */
+.interactive-flower {
+    text-align: center;
+    margin: 40px 0;
 }
 
-@keyframes bloom {
-  0% { transform: scale(0); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+#flower-container {
+    height: 300px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.rose {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('assets/images/rose.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: fadeIn 1s forwards;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid var(--pink);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('assets/images/heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation: float 5s linear forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .pixel-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
 }
