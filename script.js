@@ -1,66 +1,112 @@
-function showLetter() {
-  document.querySelector('.letter').style.display = 'block';
-}
-
-function showGallery() {
-  document.querySelector('.gallery').style.display = 'flex';
-}
-
-function toggleMusic() {
-  const music = document.getElementById('bgMusic');
-  if (music.paused) music.play();
-  else music.pause();
-}
-
-function bloomFlower() {
-  const flowerScene = document.querySelector('.flower-scene');
-  flowerScene.innerHTML = ''; // clear old content
-  const flower = document.createElement('div');
-  flower.className = 'flower';
-  flowerScene.appendChild(flower);
-  flowerScene.classList.add('active');
-  setTimeout(() => {
-    flowerScene.classList.remove('active');
-  }, 5000);
-}
-
-// Heart animation
-const canvas = document.getElementById('heartsCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let hearts = [];
-
-function drawHeart(x, y, size) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.bezierCurveTo(-size / 2, -size / 2, -size, size / 3, 0, size);
-  ctx.bezierCurveTo(size, size / 3, size / 2, -size / 2, 0, 0);
-  ctx.fillStyle = '#ff69b4';
-  ctx.fill();
-  ctx.restore();
-}
-
-function createHeart() {
-  return {
-    x: Math.random() * canvas.width,
-    y: 0,
-    size: Math.random() * 10 + 10,
-    speed: Math.random() * 2 + 1
-  };
-}
-
-function update() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (Math.random() < 0.1) hearts.push(createHeart());
-  hearts.forEach((h, i) => {
-    h.y += h.speed;
-    drawHeart(h.x, h.y, h.size);
-    if (h.y > canvas.height) hearts.splice(i, 1);
-  });
-  requestAnimationFrame(update);
-}
-update();
+document.addEventListener('DOMContentLoaded', function() {
+    // Music Player
+    const audio = document.getElementById('anniversary-song');
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+    const replayBtn = document.getElementById('replay-btn');
+    
+    playBtn.addEventListener('click', () => {
+        audio.play();
+    });
+    
+    pauseBtn.addEventListener('click', () => {
+        audio.pause();
+    });
+    
+    replayBtn.addEventListener('click', () => {
+        audio.currentTime = 0;
+        audio.play();
+    });
+    
+    // Flower Animation
+    const flowerBtn = document.getElementById('flower-btn');
+    const flowerContainer = document.getElementById('flower-container');
+    
+    flowerBtn.addEventListener('click', createFlowerAnimation);
+    
+    function createFlowerAnimation() {
+        // Clear previous flowers
+        flowerContainer.innerHTML = '';
+        
+        // Create multiple roses
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+                const rose = document.createElement('div');
+                rose.classList.add('rose');
+                
+                // Random position
+                const xPos = Math.random() * (flowerContainer.offsetWidth - 30);
+                const yPos = Math.random() * (flowerContainer.offsetHeight - 30);
+                
+                rose.style.left = `${xPos}px`;
+                rose.style.top = `${yPos}px`;
+                
+                // Random size variation
+                const size = 20 + Math.random() * 20;
+                rose.style.width = `${size}px`;
+                rose.style.height = `${size}px`;
+                
+                flowerContainer.appendChild(rose);
+            }, i * 100);
+        }
+        
+        // Create floating hearts
+        createHearts(10);
+    }
+    
+    // Floating Hearts
+    const heartsContainer = document.getElementById('hearts-container');
+    
+    function createHearts(count) {
+        for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                // Random position at bottom
+                const xPos = Math.random() * window.innerWidth;
+                heart.style.left = `${xPos}px`;
+                heart.style.bottom = '-20px';
+                
+                // Random size
+                const size = 15 + Math.random() * 15;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // Random animation duration
+                const duration = 3 + Math.random() * 7;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }, i * 300);
+        }
+    }
+    
+    // Gallery
+    const galleryGrid = document.querySelector('.gallery-grid');
+    
+    // Replace with your actual image paths
+    const galleryImages = [
+        'pic1.jpg',
+        'pic2.jpg',
+        'pic3.jpg',
+        // Add more images as needed
+    ];
+    
+    galleryImages.forEach(imageSrc => {
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.classList.add('gallery-item');
+        galleryGrid.appendChild(img);
+    });
+    
+    // Initial small animation when page loads
+    setTimeout(() => {
+        createHearts(3);
+    }, 1000);
+});
