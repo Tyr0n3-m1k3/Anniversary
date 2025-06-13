@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5-Year Anniversary 💕</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 5 Year Anniversary</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Happy 5th Anniversary, My Love 💖</h1>
-    <p>Five perfect years with you.</p>
+    <div class="container">
+        <header class="pixel-header">
+            <h1>Happy 5 Years!</h1>
+            <p>To the most amazing girlfriend in the world</p>
+        </header>
 
-    <audio id="bgMusic" loop>
-      <source src="cold-water.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <button class="button" onclick="toggleMusic()">🔊 Play / Pause Music</button>
-    <button class="button" onclick="showLetter()">💌 Read Letter</button>
-    <div class="letter">
-      <div class="letter-box">
-        <h2>To My Lovely Girl</h2>
-        <p>
-          My Love,
+        <div class="music-player glass-effect">
+            <audio id="anniversary-song">
+                <source src="cold-water.mp3" type="audio/mpeg">
+            </audio>
+            <div class="player-controls">
+                <button id="play-btn" class="pixel-btn">▶️ Play</button>
+                <button id="pause-btn" class="pixel-btn">⏸️ Pause</button>
+                <button id="replay-btn" class="pixel-btn">🔄 Replay</button>
+            </div>
+            <div class="song-title">Cold Water - Justin Bieber</div>
+        </div>
+
+        <section class="love-letter pixel-box">
+            <h2>My Dearest Love...</h2>
+            <p>My Love,
 
 These last five years… where do I even begin? They’ve been a whirlwind—intense, beautiful, chaotic, and, at times, painfully confusing. We’ve loved each other so deeply, yet we’ve also clashed, misunderstood, and taken breaks that felt like forever. But each time, no matter how far apart we drifted, we always found our way back. That means something. That is love.
 
@@ -36,28 +41,27 @@ Through every fight, every silence, every tear—we’ve grown. We’ve built so
 
 Forever yours, with all my heart (and a thousand soft pink hearts floating around us),
 
-—Your Forlifer!
+—Your Man
 
-💕💕💕        </p>
-        <p>❤️ Your forever </p>
-      </div>
+💕💕💕</p>
+            <!-- Add your personal letter here -->
+        </section>
+
+        <section class="interactive-flower">
+            <button id="flower-btn" class="pixel-btn">Click for a Surprise!</button>
+            <div id="flower-container"></div>
+        </section>
+
+        <section class="gallery pixel-box">
+            <h2>Our Memories</h2>
+            <div class="gallery-grid">
+                <!-- Gallery images will be added by JavaScript -->
+            </div>
+        </section>
+
+        <div id="hearts-container"></div>
     </div>
 
-    <button class="button" onclick="showGallery()">My baby🌸 /button>
-    <div class="gallery">
-      <img src="pic1.jpg" alt="❤️">
-      <img src="pic2.jpg" alt="❤️">
-      <img src="pic3.jpg" alt="❤️">
-    </div>
-
-    <button class="button" onclick="bloomFlower()">🌸 Click for Surprise</button>
-  </div>
-
-  <div class="flower-scene">
-    <!-- Flower will be inserted here by JS -->
-  </div>
-
-  <canvas id="heartsCanvas"></canvas>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
